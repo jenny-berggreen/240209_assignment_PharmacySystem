@@ -4,8 +4,12 @@
 	--color-foreground: #000000;
 	--color-background: #ffffff;
 
-	--color-primary: ;
-	--color-secondary: ;
+	--color-primary: #0E3E77;
+	--color-secondary: #3E8EED;
+	--color-tertiary: #EAEAEA;
+
+	--color-disabled: #C1C1C1;
+
 
 	--border-radius: 5px;
 	--border-radius-max: 50px;
