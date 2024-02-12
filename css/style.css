@@ -1,0 +1,94 @@
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	flex-direction: column;
+	padding: var(--spacing-medium);
+	background-color: var(--color-tertiary);
+}
+
+h1 {
+	font-size: 1.8rem;
+	font-family: 'Inter-Bold';
+}
+
+input[type="text"] {
+	width: 18rem;
+	height: 2rem;
+}
+
+input[type="radio"] {
+	width: 1.3rem;
+	height: 1.3rem;
+	margin-right: var(--spacing-small);
+}
+
+input[type="radio"],
+select,
+button {
+	cursor: pointer;
+}
+
+select {
+	width: 6rem;
+	height: 2rem;
+}
+
+input[type="text"],
+select,
+button {
+	border: none;
+	border-radius: var(--border-radius);
+}
+
+
+/* ----------------------- register section ----------------------- */
+.register-medicine-section {
+	flex-direction: column;
+	justify-content: start;
+	gap: var(--spacing-larger);
+
+
+	width: 80%;
+
+	padding: var(--spacing-medium);
+	border-radius: var(--border-radius-medium);
+
+	background-color: var(--color-primary);
+	color: var(--color-background);
+}
+
+.register-medicine-form {
+	flex-direction: row;
+	align-items: start;
+	gap: var(--spacing-largest);
+	
+}
+
+.register-medicine-form__section {
+	flex-direction: column;
+	align-items: start;
+	gap: var(--spacing-x-small);
+}
+
+.register-medicine-form__section input,
+.register-medicine-form__section select,
+.register-medicine-form__section .radio-buttons-container {
+	margin-bottom: var(--spacing-x-small);
+}
+
+.section-divider {
+	height: 17rem;
+	width: 2px;
+	background-color: #67798F;
+}
+
+.radio-buttons-container {
+	flex-direction: row;
+	gap: var(--spacing-x-small);
+	align-items: start;
+}
