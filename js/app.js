@@ -1,3 +1,4 @@
+const medicines = [];
 
 // ----- GET ELEMENTS FROM THE DOM -----
 const quantitySelect = document.querySelector('.quantity');
@@ -43,3 +44,20 @@ radioButtons.forEach(button => {
 		}
 	})
 });
+
+// ----- DECLARING MEDICINE CLASS -----
+class Medicine {
+	constructor(productName, id, manufacturer, quantity, prescription, ageLimit) {
+		this.productName = productName;
+		this.id = id;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+		this.prescription = prescription;
+		this.ageLimit = ageLimit;
+	}
+
+	// add method
+	static addMedicine(medicine) {
+		medicines.push(medicine);
+	}
+}
