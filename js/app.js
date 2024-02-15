@@ -61,3 +61,11 @@ class Medicine {
 		medicines.push(medicine);
 	}
 }
+
+// ----- DECLARING PRESCRIPTION MEDICINE CLASS -----
+class PrescriptionMedicine extends Medicine {
+	constructor(productName, id, manufacturer, quantity, prescription, refills) {
+		super(productName, id, manufacturer, quantity, prescription)
+		this.refills = refills;
+	}
+}
