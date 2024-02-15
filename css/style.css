@@ -25,8 +25,9 @@ h1 {
 }
 
 input[type="text"] {
-	width: 18rem;
-	height: 2rem;
+	width: 20rem;
+	height: 2.2rem;
+	padding: 0 var(--spacing-x-small);
 }
 
 input[type="radio"] {
@@ -43,6 +44,7 @@ select {
 select {
 	width: 6rem;
 	height: 2rem;
+	padding: 0 var(--spacing-x-small);
 }
 
 input[type="text"],
@@ -88,8 +90,8 @@ select {
 }
 
 .section-divider {
-	height: 17rem;
-	width: 2px;
+	height: 18rem;
+	width: 1px;
 	background-color: #67798F;
 }
 
