@@ -92,3 +92,16 @@ button {
 	gap: var(--spacing-x-small);
 	align-items: start;
 }
+
+/* ----------------------- display section ----------------------- */
+.display-medicine-section {
+	flex-direction: column;
+	justify-content: start;
+
+	width: 100%;
+
+	padding: var(--spacing-medium);
+	border-radius: var(--border-radius-medium);
+
+	background-color: var(--color-foreground);
+}
