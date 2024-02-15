@@ -9,6 +9,7 @@ body {
 	flex-direction: column;
 	padding: var(--spacing-medium);
 	background-color: var(--color-tertiary);
+	gap: var(--spacing-large);
 }
 
 h1 {
@@ -100,8 +101,27 @@ button {
 
 	width: 100%;
 
-	padding: var(--spacing-medium);
+	padding: var(--spacing-small);
 	border-radius: var(--border-radius-medium);
 
-	background-color: var(--color-foreground);
+	background-color: var(--color-background);
+}
+
+.medicine-header {
+	justify-content: space-between;
+
+	width: 100%;
+	padding: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+	border-radius: 20px;
+
+	background-color: var(--color-primary);
+	color: var(--color-background);
+}
+
+.medicine-header span {
+	font-family: 'Inter-SemiBold';
+}
+
+.medicine-header__delete {
+	width: 8rem;
 }
