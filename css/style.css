@@ -12,6 +12,13 @@ body {
 	gap: var(--spacing-large);
 }
 
+button {
+	border: none;
+	border-radius: var(--border-radius);
+	padding: var(--spacing-x-small);
+	font-family: 'Inter-SemiBold';
+}
+
 h1 {
 	font-size: 1.8rem;
 	font-family: 'Inter-Bold';
@@ -29,8 +36,7 @@ input[type="radio"] {
 }
 
 input[type="radio"],
-select,
-button {
+select {
 	cursor: pointer;
 }
 
@@ -40,8 +46,7 @@ select {
 }
 
 input[type="text"],
-select,
-button {
+select {
 	border: none;
 	border-radius: var(--border-radius);
 }
@@ -92,6 +97,15 @@ button {
 	flex-direction: row;
 	gap: var(--spacing-x-small);
 	align-items: start;
+}
+
+.submit-button {
+	height: 3rem;
+	padding-left: var(--spacing-largest);
+	padding-right: var(--spacing-largest);
+
+	background-color: var(--color-secondary);
+	color: var(--color-background);
 }
 
 /* ----------------------- display section ----------------------- */
