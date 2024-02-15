@@ -24,7 +24,8 @@ h1 {
 	font-family: 'Inter-Bold';
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
 	width: 20rem;
 	height: 2.2rem;
 	padding: 0 var(--spacing-x-small);
