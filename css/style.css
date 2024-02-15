@@ -110,6 +110,10 @@ select {
 	color: var(--color-background);
 }
 
+.submit-button:hover {
+	background-color: #3275c8;
+}
+
 /* ----------------------- display section ----------------------- */
 .display-medicine-section {
 	flex-direction: column;
