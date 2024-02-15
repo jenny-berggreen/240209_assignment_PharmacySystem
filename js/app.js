@@ -20,3 +20,11 @@ for (let i = 0; i <= 100; i++) {
 	option.textContent = i;
 	ageSelect.append(option);
 }
+
+// refills
+for (let i = 0; i <= 10; i++) {
+	let option = document.createElement('option');
+	option.value = i;
+	option.textContent = i;
+	refillsSelect.append(option);
+}
