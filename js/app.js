@@ -72,10 +72,10 @@ submitButton.addEventListener('click', (e)=> {
     }
 
 	Medicine.addMedicine(newMedicine);
-	UI.renderMedicines(medicines);
+	UI.renderMedicines(Medicine.getMedicines());
 
 	console.log(newMedicine);
-	console.log(medicines);
+	console.log(Medicine.getMedicines());
 })
 
 // load existing data from localStorage if it exists
@@ -121,8 +121,10 @@ class PrescriptionMedicine extends Medicine {
 // ----- DECLARING UI CLASS -----
 class UI {
 	static renderMedicines(medicines) {
+		// clear the medicine list
 		medicineList.textContent = '';
 		
+		// iterate over each medicine
 		medicines.forEach((medicine) => {
 			// create elements
 			const liRow = document.createElement('li');
@@ -150,9 +152,9 @@ class UI {
 
 			if(medicine.prescription === 'no') {
 				renderedAgeLimit.textContent = medicine.ageLimit;
-				renderedRefills.textContent = 'U+2013';
+				renderedRefills.textContent = '––';
 			} else {
-				renderedAgeLimit.textContent = 'U+2013';
+				renderedAgeLimit.textContent = '––';
 				renderedRefills.textContent = medicine.refills;
 			}
 
@@ -167,3 +169,5 @@ class UI {
 		})
 	}
 }
+
+UI.renderMedicines(Medicine.getMedicines());
