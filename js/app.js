@@ -92,6 +92,8 @@ class Medicine {
 		this.quantity = quantity;
 		this.prescription = prescription;
 		this.ageLimit = ageLimit;
+		console.log("age: " + ageLimit);
+		console.log("prescription: " + prescription);
 	}
 
 	// retrieve recipes from local storage
@@ -150,7 +152,7 @@ class UI {
 			renderedPrescription.textContent = medicine.prescription;
 			deleteButton.textContent = 'Delete';
 
-			if(medicine.prescription === 'no') {
+			if(medicine.prescription === 'No') {
 				renderedAgeLimit.textContent = medicine.ageLimit;
 				renderedRefills.textContent = '––';
 			} else {
