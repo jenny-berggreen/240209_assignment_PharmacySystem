@@ -13,6 +13,8 @@ const refillsSelect = document.querySelector('.refills');
 
 const submitButton = document.querySelector('.submit-button');
 
+const medicineList = document.querySelector('.medicine-list');
+
 
 // ----- INSERT OPTIONS IN SELECTS -----
 // quantity
