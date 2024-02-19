@@ -110,6 +110,15 @@ class Medicine {
 		// put data in local storage
 		localStorage.setItem('data', JSON.stringify(medicines));
 	}
+
+	// delete method
+	static deleteMedicine(id, medicines) {
+		const index = medicines.findIndex(medicine => medicine.id.toString() === id.toString());
+		if(index !== -1) {
+			medicines.splice(index, 1);
+			UI.renderMedicines(Medicine.getMedicines());
+		}
+	}
 }
 
 // ----- DECLARING PRESCRIPTION MEDICINE CLASS -----
