@@ -136,7 +136,14 @@ class UI {
 				renderedRefills.textContent = medicine.refills;
 			}
 
+			liRow.classList.add('books-row');
+			deleteButton.classList.add('button--red');
 
+			liRow.dataset.id = medicine.id;
+
+			medicineList.append(liRow);
+			liRow.append(renderedName, renderedID, renderedManufacturer, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, deleteButtonContainer);
+			deleteButtonContainer.append(deleteButton);
 		})
 	}
 }
