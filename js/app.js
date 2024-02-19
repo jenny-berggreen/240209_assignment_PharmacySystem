@@ -1,5 +1,3 @@
-const medicines = [];
-// const prescriptionMedicines = [];
 
 // ----- GET ELEMENTS FROM THE DOM -----
 const nameInput = document.querySelector('.name');
@@ -94,7 +92,11 @@ class Medicine {
 
 	// add method
 	static addMedicine(medicine) {
+		const medicines = Medicine.getMedicines(); // retrieve existing medicines
 		medicines.push(medicine);
+
+		// put data in local storage
+		localStorage.setItem('data', JSON.stringify(medicines));
 	}
 }
 
