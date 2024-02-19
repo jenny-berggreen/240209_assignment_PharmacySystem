@@ -158,7 +158,7 @@ class UI {
 				renderedRefills.textContent = medicine.refills;
 			}
 
-			liRow.classList.add('books-row');
+			liRow.classList.add('medicine-list__row');
 			deleteButton.classList.add('button--red');
 
 			liRow.dataset.id = medicine.id;
