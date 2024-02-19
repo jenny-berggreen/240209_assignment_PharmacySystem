@@ -106,3 +106,10 @@ class PrescriptionMedicine extends Medicine {
 		this.refills = refills;
 	}
 }
+
+// ----- DECLARING UI CLASS -----
+class UI {
+	static renderMedicines(medicines) {
+
+	}
+}
