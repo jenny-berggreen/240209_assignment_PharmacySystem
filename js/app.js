@@ -116,6 +116,8 @@ class Medicine {
 		const index = medicines.findIndex(medicine => medicine.id.toString() === id.toString());
 		if(index !== -1) {
 			medicines.splice(index, 1);
+			// update local storage
+			localStorage.setItem('data', JSON.stringify(medicines));
 			UI.renderMedicines(Medicine.getMedicines());
 		}
 	}
@@ -177,6 +179,11 @@ class UI {
 			medicineList.append(liRow);
 			liRow.append(renderedName, renderedID, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, deleteButtonContainer);
 			deleteButtonContainer.append(deleteButton);
+
+			deleteButton.addEventListener('click', (e) => {
+				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
+				Medicine.deleteMedicine(rowID, Medicine.getMedicines());
+			})
 		})
 	}
 }
