@@ -141,8 +141,36 @@ select {
 
 .medicine-header span {
 	font-family: 'Inter-SemiBold';
+	text-align: center;
+	flex-basis: 10%;
 }
 
 .medicine-header__delete {
 	width: 8rem;
+}
+
+.medicine-list {
+	width: 100%;
+}
+
+.medicine-list__row {
+	justify-content: space-between;
+
+	width: 100%;
+	padding: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+	border-radius: 20px;
+	margin-top: 0.5rem;
+
+	background-color: var(--color-tertiary);
+}
+
+.medicine-list__row span {
+	text-align: center;
+	flex-basis: 10%;
+}
+
+.delete-button {
+	background-color: red;
+	color: var(--color-background);
+	padding: var(--spacing-x-small) var(--spacing-small);
 }
