@@ -73,6 +73,8 @@ submitButton.addEventListener('click', (e)=> {
     }
 
 	Medicine.addMedicine(newMedicine);
+	UI.renderMedicines(medicines);
+
 	console.log(newMedicine);
 	console.log(medicines);
 })
@@ -105,6 +107,8 @@ class PrescriptionMedicine extends Medicine {
 // ----- DECLARING UI CLASS -----
 class UI {
 	static renderMedicines(medicines) {
+		medicineList.textContent = '';
+		
 		medicines.forEach((medicine) => {
 			// create elements
 			const liRow = document.createElement('li');
