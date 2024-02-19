@@ -105,6 +105,38 @@ class PrescriptionMedicine extends Medicine {
 // ----- DECLARING UI CLASS -----
 class UI {
 	static renderMedicines(medicines) {
+		medicines.forEach((medicine) => {
+			// create elements
+			const liRow = document.createElement('li');
 
+			const renderedName = document.createElement('span');
+			const renderedID = document.createElement('span');
+			const renderedManufacturer = document.createElement('span');
+			const renderedQuantity = document.createElement('span');
+			const renderedPrescription = document.createElement('span');
+			const renderedAgeLimit = document.createElement('span');
+			const renderedRefills = document.createElement('span');
+
+			const deleteButtonContainer = document.createElement('span');
+			const deleteButton = document.createElement('button');
+
+			// insert text contents
+			renderedName.textContent = medicine.productName;
+			renderedID.textContent = medicine.id;
+			renderedManufacturer.textContent = medicine.manufacturer;
+			renderedQuantity.textContent = medicine.quantity;
+			renderedPrescription.textContent = medicine.prescription;
+			deleteButton.textContent = 'Delete';
+
+			if(medicine.prescription === 'no') {
+				renderedAgeLimit.textContent = medicine.ageLimit;
+				renderedRefills.textContent = 'U+2013';
+			} else {
+				renderedAgeLimit.textContent = 'U+2013';
+				renderedRefills.textContent = medicine.refills;
+			}
+
+
+		})
 	}
 }
