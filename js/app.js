@@ -78,6 +78,10 @@ submitButton.addEventListener('click', (e)=> {
 	console.log(medicines);
 })
 
+// load existing data from localStorage if it exists
+const existingMedicines = localStorage.getItem('data');
+const data = existingMedicines ? JSON.parse(existingMedicines) : [];
+
 // ----- DECLARING MEDICINE CLASS -----
 class Medicine {
 	constructor(productName, id, manufacturer, expirationDate, quantity, prescription, ageLimit) {
@@ -89,6 +93,12 @@ class Medicine {
 		this.prescription = prescription;
 		this.ageLimit = ageLimit;
 	}
+
+	// retrieve recipes from local storage
+	static getMedicines() {
+		const existingMedicines = localStorage.getItem('data');
+		return existingMedicines ? JSON.parse(existingMedicines) : [];
+    }
 
 	// add method
 	static addMedicine(medicine) {
