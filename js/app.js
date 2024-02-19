@@ -1,5 +1,5 @@
 const medicines = [];
-const prescriptionMedicines = [];
+// const prescriptionMedicines = [];
 
 // ----- GET ELEMENTS FROM THE DOM -----
 const nameInput = document.querySelector('.name');
@@ -75,7 +75,6 @@ submitButton.addEventListener('click', (e)=> {
 	Medicine.addMedicine(newMedicine);
 	console.log(newMedicine);
 	console.log(medicines);
-	console.log(prescriptionMedicines);
 })
 
 // ----- DECLARING MEDICINE CLASS -----
@@ -91,11 +90,7 @@ class Medicine {
 
 	// add method
 	static addMedicine(medicine) {
-		if (medicine.prescription === 'no') {
-			medicines.push(medicine);
-		} else {
-			prescriptionMedicines.push(medicine);
-		}
+		medicines.push(medicine);
 	}
 }
 
