@@ -162,6 +162,8 @@ submitButton.addEventListener('click', (e)=> {
 
 	// reset form
 	registerMedicineForm.reset();
+	refillsSelect.setAttribute('disabled', '');
+	ageSelect.removeAttribute('disabled');
 });
 
 // load existing data from localStorage if it exists
