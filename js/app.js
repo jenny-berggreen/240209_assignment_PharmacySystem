@@ -73,13 +73,43 @@ submitButton.addEventListener('click', (e)=> {
 				const label = input.previousElementSibling; // select the label of the empty input
 				const requiredSpan = document.createElement('span');
 				requiredSpan.classList.add('required-span'); // add a class to identify required spans
-				requiredSpan.textContent = ' Required';
+				requiredSpan.textContent = ' Required!';
                 requiredSpan.style.color = 'red';
-                label.appendChild(requiredSpan); // append the span next to the label
+                label.append(requiredSpan); // append the span next to the label
 			}
 		});
 		return;
 	}
+
+	// remove existing idExists span if it exists
+	const existingIDspan = document.querySelector('.id-exists-span');
+	if (existingIDspan) {
+		existingIDspan.remove();
+	}
+
+	// check if ID exists
+	const medicines = Medicine.getMedicines();
+	const newID = idInput.value;
+	let idExists = false; // flag to track if the ID already exists
+	medicines.forEach(medicine => {
+		const existingID = medicine.id;
+		if(newID === existingID) {
+			const idLabel = idInput.previousElementSibling; // select the label of the ID input
+			const idExistsSpan = document.createElement('span');
+			idExistsSpan.classList.add('id-exists-span'); // add a class to identify span
+			idExistsSpan.textContent = ' ID already exists!';
+			idExistsSpan.style.color = 'red';
+			idLabel.append(idExistsSpan); // append span to ID label
+
+			idExists = true; // set flag to true
+			return; // exit from the loop when existing ID is found
+		}
+	});
+
+	// if ID exists, prevent form submission
+    if (idExists) {
+        return;
+    }
 
 	let newMedicine;
 
@@ -96,8 +126,8 @@ submitButton.addEventListener('click', (e)=> {
         }
     }
 
-	Medicine.addMedicine(newMedicine);
-	UI.renderMedicines(Medicine.getMedicines());
+	Medicine.addMedicine(newMedicine); // add medicine
+	UI.renderMedicines(Medicine.getMedicines()); // display medicines
 
 	console.log(newMedicine);
 	console.log(Medicine.getMedicines());
