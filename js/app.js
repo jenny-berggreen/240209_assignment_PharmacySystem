@@ -1,5 +1,7 @@
 
 // ----- GET ELEMENTS FROM THE DOM -----
+const registerMedicineForm = document.querySelector('.register-medicine-form');
+
 const nameInput = document.querySelector('.name');
 const idInput = document.querySelector('.id');
 const manufacturerInput = document.querySelector('.manufacturer');
@@ -99,6 +101,9 @@ submitButton.addEventListener('click', (e)=> {
 
 	console.log(newMedicine);
 	console.log(Medicine.getMedicines());
+
+	// reset form
+	registerMedicineForm.reset();
 })
 
 // load existing data from localStorage if it exists
