@@ -56,6 +56,29 @@ radioButtons.forEach(button => {
 submitButton.addEventListener('click', (e)=> {
 	e.preventDefault();
 
+	// remove existing required spans
+    const existingRequiredSpans = document.querySelectorAll('.required-span');
+    existingRequiredSpans.forEach(span => {
+        span.remove();
+    });
+
+	// check if input fields are empty
+	if(!nameInput.value || !idInput.value || !manufacturerInput.value || !expirationDateInput.value) {
+		// iterate through the inputs to find the ones that are empty
+		const inputs = [nameInput, idInput, manufacturerInput, expirationDateInput];
+		inputs.forEach(input => {
+			if(!input.value) {
+				const label = input.previousElementSibling; // select the label of the empty input
+				const requiredSpan = document.createElement('span');
+				requiredSpan.classList.add('required-span'); // add a class to identify required spans
+				requiredSpan.textContent = ' Required';
+                requiredSpan.style.color = 'red';
+                label.appendChild(requiredSpan); // append the span next to the label
+			}
+		});
+		return;
+	}
+
 	let newMedicine;
 
 	// loop through radio buttons to find the selected one
