@@ -170,7 +170,7 @@ submitButton.addEventListener('click', (e)=> {
 const existingMedicines = localStorage.getItem('data');
 const data = existingMedicines ? JSON.parse(existingMedicines) : [];
 
-// ----- DECLARING MEDICINE CLASS -----
+// ----- DECLARE MEDICINE CLASS -----
 class Medicine {
 	constructor(productName, id, manufacturer, expirationDate, quantity, prescription, ageLimit) {
 		this.productName = productName;
@@ -184,7 +184,7 @@ class Medicine {
 		console.log("prescription: " + prescription);
 	}
 
-	// retrieve recipes from local storage
+	// retrieve medicines from local storage
 	static getMedicines() {
 		const existingMedicines = localStorage.getItem('data');
 		return existingMedicines ? JSON.parse(existingMedicines) : [];
@@ -211,7 +211,7 @@ class Medicine {
 	}
 }
 
-// ----- DECLARING PRESCRIPTION MEDICINE CLASS -----
+// ----- DECLARE PRESCRIPTION MEDICINE CLASS -----
 class PrescriptionMedicine extends Medicine {
 	constructor(productName, id, manufacturer, expirationDate, quantity, prescription, refills) {
 		super(productName, id, manufacturer, expirationDate, quantity, prescription)
@@ -219,7 +219,7 @@ class PrescriptionMedicine extends Medicine {
 	}
 }
 
-// ----- DECLARING UI CLASS -----
+// ----- DECLARE UI CLASS -----
 class UI {
 	static renderMedicines(medicines) {
 		// clear the medicine list
