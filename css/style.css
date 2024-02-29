@@ -19,6 +19,10 @@ button {
 	font-family: 'Inter-SemiBold';
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 h1 {
 	font-size: 1.8rem;
 	font-family: 'Inter-Bold';
@@ -173,4 +177,8 @@ select {
 	background-color: red;
 	color: var(--color-background);
 	padding: var(--spacing-x-small) var(--spacing-small);
+}
+
+.delete-button:hover {
+	background-color: rgb(215, 1, 1);
 }
