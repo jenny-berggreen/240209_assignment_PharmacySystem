@@ -4,21 +4,59 @@
 	* {
 		font-size: 0.9rem;
 	}
+
+	body {
+		padding: var(--spacing-medium) 0;
+	}
 	
 	/* register section */
+	input[type="text"],
+	input[type="number"] {
+		width: 18rem;
+	}
 
 
 	/* display section */
 	
 }
 
-@media only screen and (max-width: 880px) {
-	/* register section */
-
-
+@media only screen and (max-width: 768px) {
+	* {
+		font-size: 0.8rem;
+	}
 	
+	/* register section */
+	.register-medicine-section {
+		width: 90%;
+		gap: var(--spacing-large);
+	}
 
+	input[type="text"],
+	input[type="number"] {
+		width: 16rem;
+	}
+
+	.register-medicine-form {
+		gap: var(--spacing-large);
+	}
+
+	/* display section */
+	.medicine-container {
+		overflow-x: auto;
+	}
+
+	.medicine-header {
+		min-width: 1000px;
+	}
+
+	.medicine-list {
+		min-width: 1000px;
+	}
 	
 }
 
+/* -------------------------------- small screens  ------------------------------------- */
+@media only screen and (max-width: 425px) {
+	
+}
 
