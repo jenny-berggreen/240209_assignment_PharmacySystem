@@ -46,11 +46,15 @@
 	}
 
 	.medicine-header {
-		min-width: 1000px;
+		min-width: 900px;
 	}
 
 	.medicine-list {
-		min-width: 1000px;
+		min-width: 900px;
+	}
+
+	.medicine-list__row {
+		padding: var(--spacing-x-small) var(--spacing-small) var(--spacing-x-small) var(--spacing-small);
 	}
 	
 }
@@ -58,5 +62,24 @@
 /* -------------------------------- small screens  ------------------------------------- */
 @media only screen and (max-width: 425px) {
 	
+	/* register section */
+	.register-medicine-form {
+		flex-direction: column;
+		
+	}
+
+	.section-divider {
+		height: 1px;
+		width: 100%;
+		background-color: #67798F;
+	}
+
+	.submit-button {
+		height: 2.8rem;
+		padding-left: var(--spacing-medium);
+		padding-right: var(--spacing-medium);
+	}
+
+	/* display section */
 }
 
