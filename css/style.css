@@ -132,10 +132,16 @@ select {
 	background-color: var(--color-background);
 }
 
+.medicine-container {
+	overflow-x: auto;
+	width: 100%;
+}
+
 .medicine-header {
 	justify-content: space-between;
 
-	width: 100%;
+	min-width: 1000px;
+
 	padding: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
 	border-radius: 20px;
 
@@ -154,7 +160,7 @@ select {
 }
 
 .medicine-list {
-	width: 100%;
+	min-width: 1000px;
 }
 
 .medicine-list__row {

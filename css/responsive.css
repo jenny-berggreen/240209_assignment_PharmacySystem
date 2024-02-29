@@ -1,0 +1,24 @@
+/* -------------------------------- medium screens  ------------------------------------- */
+
+@media only screen and (max-width: 1024px) {
+	* {
+		font-size: 0.9rem;
+	}
+	
+	/* register section */
+
+
+	/* display section */
+	
+}
+
+@media only screen and (max-width: 880px) {
+	/* register section */
+
+
+	
+
+	
+}
+
+
