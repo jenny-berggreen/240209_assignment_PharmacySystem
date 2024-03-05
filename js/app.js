@@ -81,30 +81,6 @@ submitButton.addEventListener('click', (e)=> {
 		});
 		return;
 	}
-
-	// remove existing expiration date error span if it exists
-	const existingExpirationDateErrorSpan = document.querySelector('.expiration-date-error-span');
-	if (existingExpirationDateErrorSpan) {
-		existingExpirationDateErrorSpan.remove();
-	}
-
-	// check if expiration date matches ISO 8601 format
-	const isISO8601format = (dateString) => {
-	  const regex = /^\d{4}-\d{2}-\d{2}$/;
-	  return regex.test(dateString);
-	}
-
-	const expirationDate = expirationDateInput.value;
-	if (!isISO8601format(expirationDate)) {
-		const expirationDateLabel = expirationDateInput.previousElementSibling; // select the label of the expiration date input
-		const expirationDateErrorSpan = document.createElement('span');
-		expirationDateErrorSpan.classList.add('expiration-date-error-span'); // add a class to identify span
-		expirationDateErrorSpan.textContent = ' Date must be in YYYY-MM-DD format!';
-		expirationDateErrorSpan.style.color = 'red';
-		expirationDateLabel.append(expirationDateErrorSpan); // append span to expiration date label
-
-		return;
-	}
 	
 	// ---------------------- END OF FORM VALIDATION ----------------------
 
