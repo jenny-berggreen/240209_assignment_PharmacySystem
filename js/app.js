@@ -3,7 +3,6 @@
 const registerMedicineForm = document.querySelector('.register-medicine-form');
 
 const nameInput = document.querySelector('.name');
-const idInput = document.querySelector('.id');
 const manufacturerInput = document.querySelector('.manufacturer');
 const expirationDateInput = document.querySelector('.expiration-date');
 const quantitySelect = document.querySelector('.quantity');
@@ -67,9 +66,9 @@ submitButton.addEventListener('click', (e)=> {
     });
 
 	// check if input fields are empty
-	if(!nameInput.value || !idInput.value || !manufacturerInput.value || !expirationDateInput.value) {
+	if(!nameInput.value || !manufacturerInput.value || !expirationDateInput.value) {
 		// iterate through the inputs to find the ones that are empty
-		const inputs = [nameInput, idInput, manufacturerInput, expirationDateInput];
+		const inputs = [nameInput, manufacturerInput, expirationDateInput];
 		inputs.forEach(input => {
 			if(!input.value) {
 				const label = input.previousElementSibling; // select the label of the empty input
@@ -82,36 +81,6 @@ submitButton.addEventListener('click', (e)=> {
 		});
 		return;
 	}
-
-	// remove existing idExists span if it exists
-	const existingIDspan = document.querySelector('.id-exists-span');
-	if (existingIDspan) {
-		existingIDspan.remove();
-	}
-
-	// check if ID exists
-	const medicines = Medicine.getMedicines();
-	const newID = idInput.value;
-	let idExists = false; // flag to track if the ID already exists
-	medicines.forEach(medicine => {
-		const existingID = medicine.id;
-		if(newID === existingID) {
-			const idLabel = idInput.previousElementSibling; // select the label of the ID input
-			const idExistsSpan = document.createElement('span');
-			idExistsSpan.classList.add('id-exists-span'); // add a class to identify span
-			idExistsSpan.textContent = ' ID already exists!';
-			idExistsSpan.style.color = 'red';
-			idLabel.append(idExistsSpan); // append span to ID label
-
-			idExists = true; // set flag to true
-			return; // exit from the loop when existing ID is found
-		}
-	});
-
-	// if ID exists, prevent form submission
-    if (idExists) {
-        return;
-    }
 
 	// remove existing expiration date error span if it exists
 	const existingExpirationDateErrorSpan = document.querySelector('.expiration-date-error-span');
@@ -137,7 +106,6 @@ submitButton.addEventListener('click', (e)=> {
 		return;
 	}
 	
-
 	// ---------------------- END OF FORM VALIDATION ----------------------
 
 	let newMedicine;
