@@ -198,7 +198,6 @@ class UI {
 			const liRow = document.createElement('li');
 
 			const renderedName = document.createElement('span');
-			const renderedID = document.createElement('span');
 			const renderedManufacturer = document.createElement('span');
 			const renderedExpirationDate = document.createElement('span');
 			const renderedQuantity = document.createElement('span');
@@ -211,7 +210,6 @@ class UI {
 
 			// insert text contents
 			renderedName.textContent = medicine.productName;
-			renderedID.textContent = medicine.id;
 			renderedManufacturer.textContent = medicine.manufacturer;
 			renderedExpirationDate.textContent = medicine.expirationDate;
 			renderedQuantity.textContent = medicine.quantity;
@@ -232,7 +230,7 @@ class UI {
 			liRow.dataset.id = medicine.id;
 
 			medicineList.append(liRow);
-			liRow.append(renderedName, renderedID, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, deleteButtonContainer);
+			liRow.append(renderedName, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, deleteButtonContainer);
 			deleteButtonContainer.append(deleteButton);
 
 			deleteButton.addEventListener('click', (e) => {
