@@ -114,9 +114,9 @@ submitButton.addEventListener('click', (e)=> {
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
             if (radioButtons[i].value === 'no') {
-                newMedicine = new Medicine(nameInput.value, idInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "No", ageSelect.value);
+                newMedicine = new Medicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "No", ageSelect.value);
             } else {
-                newMedicine = new PrescriptionMedicine(nameInput.value, idInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "Yes", refillsSelect.value);
+                newMedicine = new PrescriptionMedicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "Yes", refillsSelect.value);
             }
             break; // exit the loop once the selected radio button is found
         }
@@ -140,16 +140,14 @@ const data = existingMedicines ? JSON.parse(existingMedicines) : [];
 
 // ----- DECLARE MEDICINE CLASS -----
 class Medicine {
-	constructor(productName, id, manufacturer, expirationDate, quantity, prescription, ageLimit) {
+	constructor(productName, manufacturer, expirationDate, quantity, prescription, ageLimit) {
 		this.productName = productName;
-		this.id = id;
 		this.manufacturer = manufacturer;
 		this.expirationDate = expirationDate;
 		this.quantity = quantity;
 		this.prescription = prescription;
 		this.ageLimit = ageLimit;
-		console.log("age: " + ageLimit);
-		console.log("prescription: " + prescription);
+		this.id = Date.now();
 	}
 
 	// retrieve medicines from local storage
@@ -181,9 +179,10 @@ class Medicine {
 
 // ----- DECLARE PRESCRIPTION MEDICINE CLASS -----
 class PrescriptionMedicine extends Medicine {
-	constructor(productName, id, manufacturer, expirationDate, quantity, prescription, refills) {
-		super(productName, id, manufacturer, expirationDate, quantity, prescription)
+	constructor(productName, manufacturer, expirationDate, quantity, prescription, refills) {
+		super(productName, manufacturer, expirationDate, quantity, prescription)
 		this.refills = refills;
+		this.id = Date.now();
 	}
 }
 
