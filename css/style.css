@@ -28,7 +28,7 @@ h1 {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="date"] {
 	width: 20rem;
 	height: 2.2rem;
 	padding: 0 var(--spacing-x-small);
@@ -52,6 +52,7 @@ select {
 }
 
 input[type="text"],
+input[type="date"],
 select {
 	border: none;
 	border-radius: var(--border-radius);
@@ -150,7 +151,7 @@ select {
 .medicine-header span {
 	font-family: 'Inter-SemiBold';
 	text-align: center;
-	flex-basis: 10%;
+	flex-basis: 11%;
 }
 
 .medicine-header__delete {
@@ -174,7 +175,7 @@ select {
 
 .medicine-list__row span {
 	text-align: center;
-	flex-basis: 10%;
+	flex-basis: 11%;
 }
 
 .delete-button {

@@ -5,13 +5,17 @@
 		font-size: 0.9rem;
 	}
 
+	h1 {
+		font-size: 1.7rem;
+	}
+
 	body {
 		padding: var(--spacing-medium) 0;
 	}
 	
 	/* register section */
 	input[type="text"],
-	input[type="number"] {
+	input[type="date"] {
 		width: 18rem;
 	}
 
@@ -24,6 +28,10 @@
 	* {
 		font-size: 0.8rem;
 	}
+
+	h1 {
+		font-size: 1.6rem;
+	}
 	
 	/* register section */
 	.register-medicine-section {
@@ -32,7 +40,7 @@
 	}
 
 	input[type="text"],
-	input[type="number"] {
+	input[type="date"] {
 		width: 16rem;
 	}
 
@@ -46,22 +54,25 @@
 	}
 
 	.medicine-header {
-		min-width: 900px;
+		min-width: 800px;
 	}
 
 	.medicine-list {
-		min-width: 900px;
+		min-width: 800px;
 	}
 
 	.medicine-list__row {
-		padding: var(--spacing-x-small) var(--spacing-small) var(--spacing-x-small) var(--spacing-small);
+		padding: var(--spacing-x-small) var(--spacing-small);
 	}
 	
 }
 
 /* -------------------------------- small screens  ------------------------------------- */
 @media only screen and (max-width: 425px) {
-	
+	h1 {
+		font-size: 1.5rem;
+	}
+
 	/* register section */
 	.register-medicine-form {
 		flex-direction: column;
