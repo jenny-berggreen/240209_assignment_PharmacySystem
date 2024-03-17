@@ -11,7 +11,7 @@ const radioButtons = document.querySelectorAll('.prescription-radio-button');
 const ageSelect = document.querySelector('.age');
 const refillsSelect = document.querySelector('.refills');
 
-const submitButton = document.querySelector('.submit-button');
+const registerButton = document.querySelector('.register-button');
 
 const medicineList = document.querySelector('.medicine-list');
 
@@ -41,6 +41,31 @@ for (let i = 0; i <= 10; i++) {
 	refillsSelect.append(option);
 }
 
+// ----- TOAST -----
+const displayRegisteredToast = () => {
+	const toast = document.querySelector('.toast');
+	toast.classList.add('toast--registered');
+	toast.textContent = 'Registered medicine!'
+	toast.style.display = 'block';
+	setTimeout(() => { // display toast for 5 seconds
+		toast.style.display = 'none';
+		toast.classList.remove('toast--registered');
+	}, 5000);
+	
+}
+
+const displayDeletedToast = () => {
+	const toast = document.querySelector('.toast');
+	toast.classList.add('toast--deleted');
+	toast.textContent = 'Deleted medicine!'
+	toast.style.display = 'block';
+	setTimeout(() => { // display toast for 5 seconds
+		toast.style.display = 'none';
+		toast.classList.remove('toast--deleted');
+	}, 5000);
+	
+}
+
 // ----- EVENT LISTENERS -----
 radioButtons.forEach(button => {
 	button.addEventListener('change', ()=> {
@@ -54,7 +79,7 @@ radioButtons.forEach(button => {
 	})
 });
 
-submitButton.addEventListener('click', (e)=> {
+registerButton.addEventListener('click', (e)=> {
 	e.preventDefault();
 
 	// ---------------------- FORM VALIDATION ----------------------
@@ -108,6 +133,8 @@ submitButton.addEventListener('click', (e)=> {
 	registerMedicineForm.reset();
 	refillsSelect.setAttribute('disabled', '');
 	ageSelect.removeAttribute('disabled');
+
+	displayRegisteredToast();
 });
 
 // load existing data from localStorage if it exists
@@ -212,6 +239,8 @@ class UI {
 			deleteButton.addEventListener('click', (e) => {
 				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
 				Medicine.deleteMedicine(rowID, Medicine.getMedicines());
+
+				displayDeletedToast();
 			})
 		})
 	}

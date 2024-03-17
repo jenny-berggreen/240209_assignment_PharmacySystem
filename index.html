@@ -10,28 +10,37 @@
 	<link href="./css/utilities.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
 </head>
-<body class="">
+<body>
+
+	<div class="toast-container flex py-3">
+		<div class="toast text-center"></div>
+	</div>
 
 	<section class="register-medicine">
 		<div class="container bg--dark-blue text--white">
 			<div class="flex flex-column">
-				<h1 class="lg text--bold">Register medicine</h1>
+				<h1 class="lg text--bold my-3">Register medicine</h1>
 
 				<form class="register-medicine-form flex flex-row">
 					<section class="flex flex-column">
-						<label for="name">Product name</label>
-						<input type="text" name="name" class="name" placeholder="E.g. Paracetamol" required>
-
-						<label for="manufacturer">Manufacturer</label>
-						<input type="text" name="manufacturer" class="manufacturer" placeholder="E.g. Manufacturer ABC" required>
-
-						<label for="expiration-date">Expiration date</label>
-						<input type="date" name="expiration-date" class="expiration-date" required>
-
-						<label for="quantity">Quantity</label>
-						<select name="quantity" class="quantity" required>
-							<option value="1">1</option>
-						</select>
+						<div class="flex flex-column">
+							<label for="name">Product name</label>
+							<input type="text" name="name" class="name" placeholder="E.g. Paracetamol" required>
+						</div>
+						<div class="flex flex-column">
+							<label for="manufacturer">Manufacturer</label>
+							<input type="text" name="manufacturer" class="manufacturer" placeholder="E.g. Manufacturer ABC" required>
+						</div>
+						<div class="flex flex-column">
+							<label for="expiration-date">Expiration date</label>
+							<input type="date" name="expiration-date" class="expiration-date" required>
+						</div>
+						<div class="flex flex-column">
+							<label for="quantity">Quantity</label>
+							<select name="quantity" class="quantity" required>
+								<option value="1">1</option>
+							</select>
+						</div>
 					</section>
 
 					<div class="section-divider"></div>
@@ -39,37 +48,40 @@
 					<section class="flex flex-column">
 						<span>Prescription required?</span>
 
-						<div class="">
-							<label for="radio-no">No</label>
-							<input type="radio" name="prescription" value="no" class="prescription-radio-button" required checked>
-
-							<label for="radio-yes">Yes</label>
-							<input type="radio" name="prescription" value="yes" class="prescription-radio-button" required>
+						<div class="flex flex-row" id="radio-buttons-container">
+							<div class="flex flex-row">
+								<label for="radio-no">No</label>
+								<input type="radio" name="prescription" value="no" class="prescription-radio-button" required checked>
+							</div>
+							<div class="flex flex-row">
+								<label for="radio-yes">Yes</label>
+								<input type="radio" name="prescription" value="yes" class="prescription-radio-button" required>
+							</div>
 						</div>
-						
-						<label for="age">Age limit</label>
-						<select name="age" class="age" required>
-							<option value="No age limit">No age limit</option>
-						</select>
-
-						<label for="refills">Number of refills</label>
-						<select name="refills" class="refills" required disabled>
-							<option value="1">1</option>
-						</select>
+						<div class="flex flex-column">
+							<label for="age">Age limit</label>
+							<select name="age" class="age" required>
+								<option value="No age limit">No age limit</option>
+							</select>
+						</div>
+						<div class="flex flex-column">
+							<label for="refills">Number of refills</label>
+							<select name="refills" class="refills" required disabled>
+								<option value="1">1</option>
+							</select>
+						</div>
 					</section>
 				</form>
 
-				<button class="register-button bg--light-blue">Register medicine</button>
+				<button class="register-button bg--light-blue text--white text--semibold my-3">Register medicine</button>
 			</div>
 		</div>
-		
-		
 	</section>
 
 	<section class="display-medicine my-4">
 		<div class="container bg--white p-2">
 			<div class="flex flex-column">
-				<header class="bg--dark-blue text--white flex flex-row">
+				<header class="bg--dark-blue text--white flex flex-row py-2">
 					<span>Product name</span>
 					<span>Manufacturer</span>
 					<span>Expiration date</span>
@@ -79,7 +91,7 @@
 					<span>Number of refills</span>
 					<span class="medicine-header__delete"></span>
 				</header>
-				<ul class="medicine-list bg--grey flex flex-row"></ul>
+				<ul class="medicine-list flex flex-column"></ul>
 			</div>
 			
 		</div>

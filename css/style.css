@@ -13,13 +13,96 @@ button {
 .register-medicine .container,
 .display-medicine .container,
 .display-medicine header,
-.display-medicine ul {
+.medicine-list__row {
 	border-radius: var(--border-radius-medium);
 }
 
+/* inputs */
+input[type="text"],
+input[type="date"],
+select {
+	padding: var(--spacing-x-small);
+	border-radius: var(--border-radius);
+	border: none;
+}
+
+input[type="text"],
+input[type="date"] {
+	width: 300px;
+}
+
+input[type="date"],
+select {
+	cursor: pointer;
+}
+
+select:disabled {
+	cursor: default;
+}
+
+select {
+	width: 150px;
+}
+
+input[type="radio"] {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+/* ------------ toast ------------*/
+.toast-container {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.toast {
+	display: none;
+	padding: var(--spacing-x-small) var(--spacing-medium);
+	border-radius: var(--spacing-x-small);
+}
+.toast--registered {
+	background-color: rgb(146, 255, 131);
+}
+
+.toast--deleted {
+	background-color: rgb(255, 148, 131);
+}
+
 /* ---------- register section ---------- */
+.register-medicine-form {
+	align-items: flex-start;
+	gap: var(--spacing-largest);
+}
+
 .register-medicine-form section {
 	align-items: flex-start;
+	gap: var(--spacing-small);
+}
+
+.register-medicine-form section div {
+	align-items: flex-start;
+	gap: var(--spacing-x-small);
+}
+
+.section-divider {
+	height: 300px;
+	width: 1px;
+	background-color: #c1c1c175;
+}
+
+#radio-buttons-container {
+	gap: var(--spacing-medium);
+}
+
+.register-button {
+	transition: transform 0.2s ease;
+}
+
+.register-button:hover {
+	background-color: #337ad0;
+	transform: scale(0.97);
 }
 
 /* ---------- display section ---------- */
@@ -34,7 +117,6 @@ button {
 .display-medicine header,
 .medicine-list__row {
 	width: 100%;
-	padding: var(--spacing-medium);
 	justify-content: space-between;
 }
 
@@ -44,6 +126,27 @@ button {
 	text-align: center;
 }
 
+.medicine-list {
+	width: 100%;
+}
+
+.medicine-list__row {
+	padding: 1rem 0;
+	margin-top: var(--spacing-x-small);
+	background-color: var(--color-tertiary);
+}
+
+.delete-button {
+	background-color: red;
+	color: white;
+	padding: var(--spacing-x-small) var(--spacing-small);
+	transition: transform 0.2s ease;
+}
+
+.delete-button:hover {
+	background-color: rgb(220, 0, 0);
+	transform: scale(0.97);
+}
 
 
 
