@@ -13,66 +13,75 @@
 <body class="">
 
 	<section class="register-medicine">
-		<h1>Register medicine</h1>
+		<div class="container bg--dark-blue text--white">
+			<div class="flex flex-column">
+				<h1 class="lg text--bold">Register medicine</h1>
 
-		<form class="register-medicine-form">
-			<section class="">
-				<label for="name">Product name</label>
-				<input type="text" name="name" class="name" placeholder="E.g. Paracetamol" required>
+				<form class="register-medicine-form flex flex-row">
+					<section class="flex flex-column">
+						<label for="name">Product name</label>
+						<input type="text" name="name" class="name" placeholder="E.g. Paracetamol" required>
 
-				<label for="manufacturer">Manufacturer</label>
-				<input type="text" name="manufacturer" class="manufacturer" placeholder="E.g. Manufacturer ABC" required>
+						<label for="manufacturer">Manufacturer</label>
+						<input type="text" name="manufacturer" class="manufacturer" placeholder="E.g. Manufacturer ABC" required>
 
-				<label for="expiration-date">Expiration date</label>
-				<input type="date" name="expiration-date" class="expiration-date" required>
+						<label for="expiration-date">Expiration date</label>
+						<input type="date" name="expiration-date" class="expiration-date" required>
 
-				<label for="quantity">Quantity</label>
-				<select name="quantity" class="quantity" required>
-					<option value="1">1</option>
-				</select>
-			</section>
+						<label for="quantity">Quantity</label>
+						<select name="quantity" class="quantity" required>
+							<option value="1">1</option>
+						</select>
+					</section>
 
-			<div class="section-divider"></div>
+					<div class="section-divider"></div>
 
-			<section class="">
-				<span>Prescription required?</span>
+					<section class="flex flex-column">
+						<span>Prescription required?</span>
 
-				<div class="">
-					<label for="radio-no">No</label>
-					<input type="radio" name="prescription" value="no" class="prescription-radio-button" required checked>
+						<div class="">
+							<label for="radio-no">No</label>
+							<input type="radio" name="prescription" value="no" class="prescription-radio-button" required checked>
 
-					<label for="radio-yes">Yes</label>
-					<input type="radio" name="prescription" value="yes" class="prescription-radio-button" required>
-				</div>
-				
-				<label for="age">Age limit</label>
-				<select name="age" class="age" required>
-					<option value="No age limit">No age limit</option>
-				</select>
+							<label for="radio-yes">Yes</label>
+							<input type="radio" name="prescription" value="yes" class="prescription-radio-button" required>
+						</div>
+						
+						<label for="age">Age limit</label>
+						<select name="age" class="age" required>
+							<option value="No age limit">No age limit</option>
+						</select>
 
-				<label for="refills">Number of refills</label>
-				<select name="refills" class="refills" required disabled>
-					<option value="1">1</option>
-				</select>
-			</section>
-		</form>
+						<label for="refills">Number of refills</label>
+						<select name="refills" class="refills" required disabled>
+							<option value="1">1</option>
+						</select>
+					</section>
+				</form>
 
-		<button class="register-button">Register medicine</button>
+				<button class="register-button bg--light-blue">Register medicine</button>
+			</div>
+		</div>
+		
+		
 	</section>
 
-	<section class="display-medicine">
-		<div class="">
-			<header class="">
-				<span>Product name</span>
-				<span>Manufacturer</span>
-				<span>Expiration date</span>
-				<span>Quantity</span>
-				<span>Prescription</span>
-				<span>Age limit</span>
-				<span>Number of refills</span>
-				<span class="medicine-header__delete"></span>
-			</header>
-			<ul class="medicine-list"></ul>
+	<section class="display-medicine my-4">
+		<div class="container bg--white p-2">
+			<div class="flex flex-column">
+				<header class="bg--dark-blue text--white flex flex-row">
+					<span>Product name</span>
+					<span>Manufacturer</span>
+					<span>Expiration date</span>
+					<span>Quantity</span>
+					<span>Prescription</span>
+					<span>Age limit</span>
+					<span>Number of refills</span>
+					<span class="medicine-header__delete"></span>
+				</header>
+				<ul class="medicine-list bg--grey flex flex-row"></ul>
+			</div>
+			
 		</div>
 	</section>
 	

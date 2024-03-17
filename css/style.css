@@ -5,6 +5,45 @@ body {
 	gap: var(--spacing-large);
 }
 
+button {
+	padding: var(--spacing-small) var(--spacing-medium);
+	border-radius: var(--border-radius);
+}
+
+.register-medicine .container,
+.display-medicine .container,
+.display-medicine header,
+.display-medicine ul {
+	border-radius: var(--border-radius-medium);
+}
+
+/* ---------- register section ---------- */
+.register-medicine-form section {
+	align-items: flex-start;
+}
+
+/* ---------- display section ---------- */
+.display-medicine .container {
+	max-width: 1300px;
+}
+
+.display-medicine header span {
+	font-family: 'Inter-SemiBold';
+}
+
+.display-medicine header,
+.medicine-list__row {
+	width: 100%;
+	padding: var(--spacing-medium);
+	justify-content: space-between;
+}
+
+.display-medicine header span,
+.medicine-list__row span {
+	flex-basis: 12%;
+	text-align: center;
+}
+
 
 
 
