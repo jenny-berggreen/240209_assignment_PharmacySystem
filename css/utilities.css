@@ -35,6 +35,23 @@
 	grid-template-columns: repeat(4, 1fr);
 }
 
+/* Bg colors */
+.bg--dark-blue {
+	background-color: var(--color-primary);
+}
+
+.bg--light-blue {
+	background-color: var(--color-secondary);
+}
+
+.bg--grey {
+	background-color: var(--color-tertiary);
+}
+
+.bg--disabled {
+	background-color: var(--color-disabled);
+}
+
 /* Text colors and weigth and more */
 .text-center {
 	text-align: center;
