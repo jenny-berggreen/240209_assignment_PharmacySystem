@@ -148,6 +148,58 @@ input[type="radio"] {
 	transform: scale(0.97);
 }
 
+/* ---------- medium screen ---------- */
+@media(max-width: 1024px) {
+	* {
+		font-size: 0.9rem;
+	}
+
+	.container {
+		max-width: 700px;
+	}
+
+	input[type="text"],
+	input[type="date"] {
+		width: 250px;
+	}
+
+	select {
+		width: 120px;
+	}
+	
+	input[type="radio"] {
+		width: 17px;
+		height: 17px;
+	}
+
+	/* register section */
+	#register-heading {
+		font-size: 1.5rem;
+	}
+
+	/* display section */
+}
+
+/* ---------- small screen ---------- */
+@media(max-width: 768px) {
+	.container {
+		max-width: 500px;
+	}
+
+	.register-medicine-form {
+		flex-direction: column;
+		gap: var(--spacing-medium);
+	}
+
+	.section-divider {
+		height: 1px;
+		width: 100%;
+	}
+
+	.register-button {
+		margin-top: 3rem;
+	}
+}
 
 
 
