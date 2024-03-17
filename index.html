@@ -7,16 +7,16 @@
 	<link href="./css/fonts.css" rel="stylesheet">
 	<link href="./css/variables.css" rel="stylesheet">
 	<link href="./css/reset.css" rel="stylesheet">
+	<link href="./css/utilities.css" rel="stylesheet">
 	<link href="./css/style.css" rel="stylesheet">
-	<link href="./css/responsive.css" rel="stylesheet">
 </head>
-<body class="flex-center">
+<body class="">
 
-	<section class="register-medicine-section flex-center">
+	<section class="register-medicine">
 		<h1>Register medicine</h1>
 
-		<form class="register-medicine-form flex-center">
-			<div class="register-medicine-form__section flex-center">
+		<form class="register-medicine-form">
+			<section class="">
 				<label for="name">Product name</label>
 				<input type="text" name="name" class="name" placeholder="E.g. Paracetamol" required>
 
@@ -30,14 +30,14 @@
 				<select name="quantity" class="quantity" required>
 					<option value="1">1</option>
 				</select>
-			</div>
+			</section>
 
 			<div class="section-divider"></div>
 
-			<div class="register-medicine-form__section flex-center">
+			<section class="">
 				<span>Prescription required?</span>
 
-				<div class="radio-buttons-container flex-center">
+				<div class="">
 					<label for="radio-no">No</label>
 					<input type="radio" name="prescription" value="no" class="prescription-radio-button" required checked>
 
@@ -54,16 +54,15 @@
 				<select name="refills" class="refills" required disabled>
 					<option value="1">1</option>
 				</select>
-
-			</div>
+			</section>
 		</form>
 
-		<button class="submit-button">Register medicine</button>
+		<button class="register-button">Register medicine</button>
 	</section>
 
-	<section class="display-medicine-section flex-center">
-		<div class="medicine-container">
-			<header class="medicine-header flex-center">
+	<section class="display-medicine">
+		<div class="">
+			<header class="">
 				<span>Product name</span>
 				<span>Manufacturer</span>
 				<span>Expiration date</span>
