@@ -161,6 +161,36 @@ input[type="radio"] {
 	transform: scale(0.97);
 }
 
+/* view details window */
+.display-medicine__view-details-window {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: none;
+}
+
+.display-medicine__view-details-window .container {
+	position: relative;
+	gap: var(--spacing-medium);
+}
+
+.view-details-window__header {
+	font-size: 1.5rem;
+}
+
+.view-details-window__medicine-list {
+	gap: var(--spacing-small);
+	align-items: flex-start;
+}
+
+
 /* ---------- medium screen ---------- */
 @media(max-width: 1024px) {
 	* {
