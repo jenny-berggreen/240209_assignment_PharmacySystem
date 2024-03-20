@@ -199,6 +199,7 @@ class UI {
 		medicines.forEach((medicine) => {
 			// create elements
 			const liRow = document.createElement('li');
+			liRow.classList.add('medicine-list__row', 'flex');
 
 			const renderedName = document.createElement('span');
 			const renderedManufacturer = document.createElement('span');
@@ -208,8 +209,14 @@ class UI {
 			const renderedAgeLimit = document.createElement('span');
 			const renderedRefills = document.createElement('span');
 
-			const deleteButtonContainer = document.createElement('span');
+			const buttonsContainer = document.createElement('span');
+			const viewButton = document.createElement('button');
 			const deleteButton = document.createElement('button');
+
+			buttonsContainer.classList.add('flex', 'flex-row');
+			buttonsContainer.id = 'medicine-list-row__buttons-container';
+			viewButton.classList.add('view-button');
+			deleteButton.classList.add('delete-button');
 
 			// insert text contents
 			renderedName.textContent = medicine.productName;
@@ -217,6 +224,7 @@ class UI {
 			renderedExpirationDate.textContent = medicine.expirationDate;
 			renderedQuantity.textContent = medicine.quantity;
 			renderedPrescription.textContent = medicine.prescription;
+			viewButton.textContent = 'View details';
 			deleteButton.textContent = 'Delete';
 
 			if(medicine.prescription === 'No') {
@@ -227,14 +235,11 @@ class UI {
 				renderedRefills.textContent = medicine.refills;
 			}
 
-			liRow.classList.add('medicine-list__row', 'flex');
-			deleteButton.classList.add('delete-button');
-
 			liRow.dataset.id = medicine.id;
 
 			medicineList.append(liRow);
-			liRow.append(renderedName, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, deleteButtonContainer);
-			deleteButtonContainer.append(deleteButton);
+			liRow.append(renderedName, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, buttonsContainer);
+			buttonsContainer.append(viewButton, deleteButton);
 
 			deleteButton.addEventListener('click', (e) => {
 				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;

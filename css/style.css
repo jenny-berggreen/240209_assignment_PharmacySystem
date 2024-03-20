@@ -117,6 +117,7 @@ input[type="radio"] {
 .display-medicine header,
 .medicine-list__row {
 	width: 100%;
+	padding: var(--spacing-medium) var(--spacing-x-small);
 	justify-content: space-between;
 }
 
@@ -131,9 +132,21 @@ input[type="radio"] {
 }
 
 .medicine-list__row {
-	padding: 1rem 0;
 	margin-top: var(--spacing-x-small);
 	background-color: var(--color-tertiary);
+}
+
+.view-button {
+	display: none;
+	background-color: var(--color-secondary);
+	color: white;
+	padding: var(--spacing-x-small) var(--spacing-small);
+	transition: transform 0.2s ease;
+}
+
+.view-button:hover {
+	background-color: #337ad0;
+	transform: scale(0.97);
 }
 
 .delete-button {
@@ -186,6 +199,8 @@ input[type="radio"] {
 		max-width: 500px;
 	}
 
+	/* register section */
+
 	.register-medicine-form {
 		flex-direction: column;
 		gap: var(--spacing-medium);
@@ -198,6 +213,39 @@ input[type="radio"] {
 
 	.register-button {
 		margin-top: 3rem;
+	}
+
+	/* display section */
+	.display-medicine header span,
+	.medicine-list__row span {
+		display: none;
+	}
+
+	.display-medicine header span:first-child,
+	.medicine-list__row span:first-child,
+	#medicine-header__buttons-container,
+	.view-button {
+		display: block;
+	}
+
+	#medicine-list-row__buttons-container {
+		display: flex;
+	}
+
+	.display-medicine header span,
+	.medicine-list__row span {
+		flex-basis: 25%;
+	}
+
+	#medicine-list-row__buttons-container {
+		flex-basis: 40%;
+		justify-content: space-evenly;
+	}
+}
+
+@media(max-width: 540px) {
+	#medicine-list-row__buttons-container {
+		flex-basis: 60%;
 	}
 }
 
