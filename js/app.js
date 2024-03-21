@@ -14,6 +14,7 @@ const refillsSelect = document.querySelector('.refills');
 const registerButton = document.querySelector('.register-button');
 
 const medicineList = document.querySelector('.medicine-list');
+const viewDetailsWindow = document.querySelector('.view-details-window');
 
 
 // ----- INSERT OPTIONS IN SELECTS -----
@@ -126,9 +127,6 @@ registerButton.addEventListener('click', (e)=> {
 	Medicine.addMedicine(newMedicine); // add medicine
 	UI.renderMedicines(Medicine.getMedicines()); // display medicines
 
-	console.log(newMedicine);
-	console.log(Medicine.getMedicines());
-
 	// reset form
 	registerMedicineForm.reset();
 	refillsSelect.setAttribute('disabled', '');
@@ -235,20 +233,76 @@ class UI {
 				renderedRefills.textContent = medicine.refills;
 			}
 
+			// make sure that the row ID and medicine ID correlate
 			liRow.dataset.id = medicine.id;
 
+			// append elements
 			medicineList.append(liRow);
 			liRow.append(renderedName, renderedManufacturer, renderedExpirationDate, renderedQuantity, renderedPrescription, renderedAgeLimit, renderedRefills, buttonsContainer);
 			buttonsContainer.append(viewButton, deleteButton);
 
+			// delete button event listener
 			deleteButton.addEventListener('click', (e) => {
+				// get the row ID
 				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
+
+				// delete medicine
 				Medicine.deleteMedicine(rowID, Medicine.getMedicines());
 
+				// display toast
 				displayDeletedToast();
 			})
+
+			// view button event listener
+			viewButton.addEventListener('click', (e) => {
+				// display details window
+				viewDetailsWindow.style.display = 'flex';
+
+				// get the row ID
+				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
+
+				// get the medicine details from the medicine array
+				const medicines = Medicine.getMedicines();
+				const selectedMedicine = medicines.find(medicine => medicine.id.toString() === rowID.toString());
+
+				// display medicine details in the details window
+				displayMedicineDetails(selectedMedicine);
+			})
+			
 		})
 	}
 }
 
 UI.renderMedicines(Medicine.getMedicines());
+
+// function to display medicine details
+const displayMedicineDetails = (medicine) => {
+    const detailsWindowMedicineList = document.querySelector('.view-details-window__medicine-list');
+    
+    // clear previous content
+    detailsWindowMedicineList.innerHTML = '';
+
+    // Array of medicine properties
+    const properties = [
+        { label: 'Product name: ', value: medicine.productName },
+        { label: 'Manufacturer: ', value: medicine.manufacturer },
+        { label: 'Expiration date: ', value: medicine.expirationDate },
+        { label: 'Quantity: ', value: medicine.quantity },
+        { label: 'Prescription: ', value: medicine.prescription },
+        { label: 'Age limit: ', value: (medicine.prescription === 'No' ? medicine.ageLimit : '––') },
+        { label: 'Refills: ', value: (medicine.prescription === 'No' ? '––' : medicine.refills) }
+    ];
+
+    // Loop through properties to create list items
+    properties.forEach(property => {
+        const listItem = document.createElement('li');
+        const labelElement = document.createElement('span');
+        labelElement.textContent = property.label;
+        labelElement.classList.add('medicine-list-label');
+
+        listItem.appendChild(labelElement);
+        listItem.appendChild(document.createTextNode(property.value));
+
+        detailsWindowMedicineList.appendChild(listItem);
+    });
+}

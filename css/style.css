@@ -162,7 +162,8 @@ input[type="radio"] {
 }
 
 /* view details window */
-.display-medicine__view-details-window {
+.view-details-window {
+	display: none;
 	position: fixed;
 	top: 0;
 	width: 100vw;
@@ -176,7 +177,7 @@ input[type="radio"] {
 	background: none;
 }
 
-.display-medicine__view-details-window .container {
+.view-details-window .container {
 	position: relative;
 	gap: var(--spacing-medium);
 }
