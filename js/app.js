@@ -14,7 +14,9 @@ const refillsSelect = document.querySelector('.refills');
 const registerButton = document.querySelector('.register-button');
 
 const medicineList = document.querySelector('.medicine-list');
+
 const viewDetailsWindow = document.querySelector('.view-details-window');
+const closeDetailsWindowButton = document.querySelector('.close-button');
 
 
 // ----- INSERT OPTIONS IN SELECTS -----
@@ -79,6 +81,11 @@ radioButtons.forEach(button => {
 		}
 	})
 });
+
+closeDetailsWindowButton.addEventListener('click', ()=> {
+	// hide details window
+	viewDetailsWindow.style.display = 'none';
+})
 
 registerButton.addEventListener('click', (e)=> {
 	e.preventDefault();

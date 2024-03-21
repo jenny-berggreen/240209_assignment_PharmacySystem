@@ -166,7 +166,7 @@ input[type="radio"] {
 	display: none;
 	position: fixed;
 	top: 0;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 }
 
@@ -175,11 +175,19 @@ input[type="radio"] {
 	top: 0;
 	right: 0;
 	background: none;
+	font-size: 25px;
+	transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+	transform: scale(0.97);
 }
 
 .view-details-window .container {
 	position: relative;
-	gap: var(--spacing-medium);
+	gap: var(--spacing-larger);
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.349);
 }
 
 .view-details-window__header {
@@ -187,8 +195,17 @@ input[type="radio"] {
 }
 
 .view-details-window__medicine-list {
-	gap: var(--spacing-small);
+	gap: var(--spacing-medium);
 	align-items: flex-start;
+}
+
+.medicine-list-label {
+	font-family: 'Inter-SemiBold';
+}
+
+.medicine-list-label,
+.view-details-window__medicine-list li {
+	font-size: 17px;
 }
 
 
