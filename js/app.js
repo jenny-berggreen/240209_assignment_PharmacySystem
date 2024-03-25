@@ -289,7 +289,7 @@ const displayMedicineDetails = (medicine) => {
     // clear previous content
     detailsWindowMedicineList.innerHTML = '';
 
-    // Array of medicine properties
+    // array of medicine properties
     const properties = [
         { label: 'Product name: ', value: medicine.productName },
         { label: 'Manufacturer: ', value: medicine.manufacturer },
@@ -300,7 +300,7 @@ const displayMedicineDetails = (medicine) => {
         { label: 'Refills: ', value: (medicine.prescription === 'No' ? '––' : medicine.refills) }
     ];
 
-    // Loop through properties to create list items
+    // loop through array
     properties.forEach(property => {
         const listItem = document.createElement('li');
         const labelElement = document.createElement('span');
