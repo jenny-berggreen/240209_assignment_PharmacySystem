@@ -54,8 +54,7 @@ const displayRegisteredToast = () => {
 		toast.style.display = 'none';
 		toast.classList.remove('toast--registered');
 	}, 5000);
-	
-}
+};
 
 const displayDeletedToast = () => {
 	const toast = document.querySelector('.toast');
@@ -65,8 +64,18 @@ const displayDeletedToast = () => {
 	setTimeout(() => { // display toast for 5 seconds
 		toast.style.display = 'none';
 		toast.classList.remove('toast--deleted');
+	}, 5000);	
+};
+
+const displayErrorToast = (message) => {
+	const toast = document.querySelector('.toast');
+	toast.classList.add('toast--error');
+	toast.textContent = message;
+	toast.style.display = 'block';
+	setTimeout(() => { // display toast for 5 seconds
+		toast.style.display = 'none';
+		toast.classList.remove('toast--error');
 	}, 5000);
-	
 }
 
 // ----- EVENT LISTENERS -----
@@ -90,56 +99,60 @@ closeDetailsWindowButton.addEventListener('click', ()=> {
 registerButton.addEventListener('click', (e)=> {
 	e.preventDefault();
 
-	// ---------------------- FORM VALIDATION ----------------------
+	try {
+		// ---------------------- FORM VALIDATION ----------------------
 
-	// remove existing required spans
-    const existingRequiredSpans = document.querySelectorAll('.required-span');
-    existingRequiredSpans.forEach(span => {
-        span.remove();
-    });
-
-	// check if input fields are empty
-	if(!nameInput.value || !manufacturerInput.value || !expirationDateInput.value) {
-		// iterate through the inputs to find the ones that are empty
-		const inputs = [nameInput, manufacturerInput, expirationDateInput];
-		inputs.forEach(input => {
-			if(!input.value) {
-				const label = input.previousElementSibling; // select the label of the empty input
-				const requiredSpan = document.createElement('span');
-				requiredSpan.classList.add('required-span'); // add a class to identify required spans
-				requiredSpan.textContent = ' Required!';
-                requiredSpan.style.color = 'red';
-                label.append(requiredSpan); // append the span next to the label
-			}
+		// remove existing required spans
+		const existingRequiredSpans = document.querySelectorAll('.required-span');
+		existingRequiredSpans.forEach(span => {
+			span.remove();
 		});
-		return;
+
+		// check if input fields are empty
+		if(!nameInput.value || !manufacturerInput.value || !expirationDateInput.value) {
+			// iterate through the inputs to find the ones that are empty
+			const inputs = [nameInput, manufacturerInput, expirationDateInput];
+			inputs.forEach(input => {
+				if(!input.value) {
+					const label = input.previousElementSibling; // select the label of the empty input
+					const requiredSpan = document.createElement('span');
+					requiredSpan.classList.add('required-span'); // add a class to identify required spans
+					requiredSpan.textContent = ' Required!';
+					requiredSpan.style.color = 'red';
+					label.append(requiredSpan); // append the span next to the label
+				}
+			});
+			return;
+		}
+		
+		// ---------------------- END OF FORM VALIDATION ----------------------
+
+		let newMedicine;
+
+		// loop through radio buttons to find the selected one
+		for (let i = 0; i < radioButtons.length; i++) {
+			if (radioButtons[i].checked) {
+				if (radioButtons[i].value === 'no') {
+					newMedicine = new Medicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "No", ageSelect.value);
+				} else {
+					newMedicine = new PrescriptionMedicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "Yes", refillsSelect.value);
+				}
+				break; // exit the loop once the selected radio button is found
+			}
+		}
+
+		Medicine.addMedicine(newMedicine); // add medicine
+		UI.renderMedicines(Medicine.getMedicines()); // display medicines
+
+		// reset form
+		registerMedicineForm.reset();
+		refillsSelect.setAttribute('disabled', '');
+		ageSelect.removeAttribute('disabled');
+
+		displayRegisteredToast();
+	} catch (error) {
+		displayErrorToast(error.message);
 	}
-	
-	// ---------------------- END OF FORM VALIDATION ----------------------
-
-	let newMedicine;
-
-	// loop through radio buttons to find the selected one
-    for (let i = 0; i < radioButtons.length; i++) {
-        if (radioButtons[i].checked) {
-            if (radioButtons[i].value === 'no') {
-                newMedicine = new Medicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "No", ageSelect.value);
-            } else {
-                newMedicine = new PrescriptionMedicine(nameInput.value, manufacturerInput.value, expirationDateInput.value, quantitySelect.value, "Yes", refillsSelect.value);
-            }
-            break; // exit the loop once the selected radio button is found
-        }
-    }
-
-	Medicine.addMedicine(newMedicine); // add medicine
-	UI.renderMedicines(Medicine.getMedicines()); // display medicines
-
-	// reset form
-	registerMedicineForm.reset();
-	refillsSelect.setAttribute('disabled', '');
-	ageSelect.removeAttribute('disabled');
-
-	displayRegisteredToast();
 });
 
 // load existing data from localStorage if it exists
@@ -250,15 +263,19 @@ class UI {
 
 			// delete button event listener
 			deleteButton.addEventListener('click', (e) => {
-				// get the row ID
-				const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
-
-				// delete medicine
-				Medicine.deleteMedicine(rowID, Medicine.getMedicines());
-
-				// display toast
-				displayDeletedToast();
-			})
+				try {
+					// get the row ID
+					const rowID = e.currentTarget.parentElement.parentElement.dataset.id;
+			
+					// delete medicine
+					Medicine.deleteMedicine(rowID, Medicine.getMedicines());
+			
+					// display toast
+					displayDeletedToast();
+				} catch (error) {
+					displayErrorToast('Error deleting medicine. Please try again.');
+				}
+			});
 
 			// view button event listener
 			viewButton.addEventListener('click', (e) => {

@@ -67,6 +67,10 @@ input[type="radio"] {
 }
 
 .toast--deleted {
+	background-color: rgb(131, 214, 255);
+}
+
+.toast--error {
 	background-color: rgb(255, 148, 131);
 }
 
