@@ -5,3 +5,5 @@ This project is an object oriented based application designed to manage the regi
 The Medicine class represents a medicine and includes methods for retrieving, adding, and deleting medicines from localStorage. 
 The PrescriptionMedicine class extends the Medicine class to include additional properties specific to prescription medicines.
 The UI class manages the rendering of the medicine list and details view, and handles UI interactions.
+
+https://pharmacy-system-assignment2.netlify.app
